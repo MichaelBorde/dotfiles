@@ -1,0 +1,51 @@
+#!/bin/bash
+
+BASE_URL="https://raw.githubusercontent.com/MichaelBorde/dotfiles/master"
+
+function program() {
+  install_default
+  install_options "$@"
+}
+
+function install_options() {
+  local option
+  for option in $@; do
+    install_option_if_valid "${option}"
+  done
+}
+
+function install_option_if_valid() {
+  local option="${1}"
+  local func="install_${option}"
+  type "${func}" > /dev/null 2>&1
+  if (( $? != 0 )); then
+    echo "Option ${option} is invalid."
+    exit 1
+  else
+    ${func}
+  fi
+}
+
+function install_default() {
+  echo "Installing default dotfiles"
+  download ".profile"
+  download ".nanorc"
+}
+
+function install_zsh() {
+  echo "Installing zsh dotfiles"
+  download ".zshrc"
+  download ".zprofile"
+}
+
+function install_osx() {
+  echo "Installing osx dotfiles"
+  download ".osx"
+}
+
+function download() {
+  local filename="${1}"
+  curl -sSL -o "${HOME}/${filename}" "${BASE_URL}/${filename}"
+}
+
+program "$@"
