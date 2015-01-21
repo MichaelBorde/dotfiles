@@ -7,6 +7,6 @@ if [[ -n "${SSH_TTY}" ]]; then
   else
     if [[ -f "${HOME}/.bashrc" ]]; then
       source "${HOME}/.bashrc"
-    end
-  end
+    fi
+  fi
 fi
