@@ -14,10 +14,10 @@ alias ll="ls -lhp"
 alias be="bundle exec"
 
 ################################################################################
-# .profile
+# .bashrc
 ################################################################################
-alias edit_profile="${EDITOR} ${HOME}/.profile"
-alias resource_profile="source ${HOME}/.profile"
+alias edit_profile="${EDITOR} ${HOME}/.bashrc"
+alias resource_profile="source ${HOME}/.profile && source ${HOME}/.bashrc"
 
 ################################################################################
 # Docker
@@ -81,5 +81,5 @@ function _current_branch() {
 ################################################################################
 # Other .dotfiles
 ################################################################################
-[[ "$(uname -s)" == "Darwin" ]] && source "${HOME}/.osx"
-[[ -f "${HOME}/.local_profile" ]] && source "${HOME}/.local_profile"
+[[ -f "${HOME}/.osx" ]] && source "${HOME}/.osx"
+[[ -f "${HOME}/.localrc" ]] && source "${HOME}/.localrc"

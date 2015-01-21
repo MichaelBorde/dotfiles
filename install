@@ -28,24 +28,27 @@ function install_option_if_valid() {
 
 function install_default() {
   echo "Installing default dotfiles"
-  download ".profile"
+  download "profile/.profile"
+  download "shellrc/.bashrc"
   download ".nanorc"
 }
 
 function install_zsh() {
   echo "Installing zsh dotfiles"
-  download ".zshrc"
-  download ".zprofile"
+  download "profile/.zprofile"
+  download "shellrc/.zshrc"
 }
 
 function install_osx() {
   echo "Installing osx dotfiles"
-  download ".osx"
+  download "profile/.osxprofile"
+  download "shellrc/.osxbashrc"
 }
 
 function download() {
-  local filename="${1}"
-  curl -sSL -o "${HOME}/${filename}" "${BASE_URL}/${filename}"
+  local file="${1}"
+  local name="${1//*\//}"
+  curl -sSL -o "${HOME}/${name}" "${BASE_URL}/${file}"
 }
 
 program "$@"
