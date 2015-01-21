@@ -2,11 +2,6 @@
 [[ -f "${HOME}/.localprofile" ]] && source "${HOME}/.localprofile"
 
 if [[ -n "${SSH_TTY}" ]]; then
-  if [[ -f "${HOME}/.zshrc" ]]; then
-    source "${HOME}/.zshrc"
-  else
-    if [[ -f "${HOME}/.bashrc" ]]; then
-      source "${HOME}/.bashrc"
-    fi
-  fi
+  [[ -n "${ZSH_VERSION}" && -f "${HOME}/.zshrc" ]] && source "${HOME}/.zshrc"
+  [[ -n "${BASH_VERSION}" && -f "${HOME}/.bashrc" ]] && source "${HOME}/.bashrc"
 fi
