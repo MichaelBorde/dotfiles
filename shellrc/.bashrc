@@ -81,5 +81,5 @@ function _current_branch() {
 ################################################################################
 # Other .dotfiles
 ################################################################################
-[[ -f "${HOME}/.osx" ]] && source "${HOME}/.osx"
+[[ -f "${HOME}/.osxbashrc" ]] && source "${HOME}/.osxbashrc"
 [[ -f "${HOME}/.localrc" ]] && source "${HOME}/.localrc"
