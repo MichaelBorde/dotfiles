@@ -12,6 +12,7 @@ export LSCOLORS="gxBxhxDxfxhxhxhxhxcxcx"
 alias ls="ls -p"
 alias ll="ls -lhp"
 alias be="bundle exec"
+alias tmuxa="tmux a -t 0"
 
 ################################################################################
 # .bashrc
