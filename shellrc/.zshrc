@@ -13,7 +13,4 @@ compctl -K _completemarks unmark
 setopt no_nomatch
 setopt interactivecomments
 
-emulate sh
-[[ -f "${HOME}/.bashrc" ]] && source "${HOME}/.bashrc"
-emulate zsh
-
+[[ -e "${HOME}/.bashrc" ]] && emulate sh -c 'source "${HOME}/.bashrc"'

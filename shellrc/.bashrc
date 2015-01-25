@@ -13,6 +13,7 @@ alias ls="ls -p"
 alias ll="ls -lhp"
 alias be="bundle exec"
 alias tmuxa="tmux a -t 0"
+alias ssh_tunnel="ssh -D 8080 -C -N"
 
 ################################################################################
 # .bashrc
@@ -28,7 +29,7 @@ function docker_stop_containers() {
 }
 
 function docker_rm_dangling() {
-  docker ps --no-trunc -a -q | xargs docker rm 
+  docker ps --no-trunc -a -q | xargs docker rm
   docker images -q --filter "dangling=true" | xargs docker rmi
 }
 

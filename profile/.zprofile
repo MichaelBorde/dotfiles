@@ -1,3 +1,1 @@
-emulate sh
-[[ -f "${HOME}/.profile" ]] && source "${HOME}/.profile"
-emulate zsh
+[[ -e "${HOME}/.profile" ]] && emulate sh -c 'source "${HOME}/.profile"'
