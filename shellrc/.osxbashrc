@@ -1,7 +1,7 @@
 ################################################################################
 # Boot2Docker
 ################################################################################
-function boot2docker_start() {
+boot2docker_start() {
   boot2docker start
   $(boot2docker shellinit)
 }
@@ -9,12 +9,12 @@ function boot2docker_start() {
 ################################################################################
 # Finder
 ################################################################################
-function show_all_files() {
+show_all_files() {
   defaults write com.apple.finder AppleShowAllFiles TRUE
   killall Finder
 }
 
-function hide_secret_files() {
+hide_secret_files() {
   defaults write com.apple.finder AppleShowAllFiles FALSE
   killall Finder
 }
@@ -25,7 +25,7 @@ function hide_secret_files() {
 alias ls_java='/usr/libexec/java_home -V 2>&1 \
 | grep -E "\d.\d.\d_\d\d" | cut -d , -f 1 | colrm 1 4 | grep -v Home'
 
-function change_java() {
+change_java() {
   export JAVA_HOME="$(/usr/libexec/java_home -v "$1")"
   export PATH="${JAVA_HOME}/bin:${PATH}"
   java -version
@@ -34,7 +34,7 @@ function change_java() {
 ################################################################################
 # Misc
 ################################################################################
-function brew_update() {
+brew_update() {
   brew update
   brew upgrade
   brew cleanup
