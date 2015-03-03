@@ -3,7 +3,7 @@ ZSH_THEME="robbyrussell"
 plugins=(git jump osx ruby)
 source "${ZSH}/oh-my-zsh.sh"
 
-_completemarks {
+_completemarks() {
   reply=($(ls $MARKPATH))
 }
 
