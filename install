@@ -31,6 +31,7 @@ install_default() {
   download "profile/.profile"
   download "shellrc/.bashrc"
   download ".nanorc"
+  download ".tmux.conf"
 }
 
 install_zsh() {
