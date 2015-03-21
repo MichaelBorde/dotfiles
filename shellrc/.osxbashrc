@@ -41,3 +41,4 @@ brew_update() {
   brew cask update
   brew cask cleanup
 }
+alias mongod="mongod --config /usr/local/etc/mongod.conf"
