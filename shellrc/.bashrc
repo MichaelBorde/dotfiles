@@ -14,6 +14,7 @@ alias ll="ls -lhp"
 alias be="bundle exec"
 alias tmuxa="tmux a -t 0"
 alias ssh_tunnel="ssh -D 8080 -C -N"
+alias compose="docker-compose"
 
 ################################################################################
 # .bashrc
