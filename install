@@ -28,16 +28,10 @@ install_option_if_valid() {
 
 install_default() {
   echo "Installing default dotfiles"
-  download "profile/.profile"
-  download "shellrc/.bashrc"
-  download ".nanorc"
-  download ".tmux.conf"
-}
-
-install_zsh() {
-  echo "Installing zsh dotfiles"
   download "profile/.zprofile"
   download "shellrc/.zshrc"
+  download ".nanorc"
+  download ".tmux.conf"
 }
 
 install_osx() {
