@@ -37,7 +37,7 @@ install_default() {
 install_osx() {
   echo "Installing osx dotfiles"
   download "profile/.osxprofile"
-  download "shellrc/.osxbashrc"
+  download "shellrc/.osxrc"
 }
 
 download() {

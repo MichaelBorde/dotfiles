@@ -33,12 +33,13 @@ alias be="bundle exec"
 alias tmuxa="tmux a -t 0"
 alias ssh_tunnel="ssh -D 8080 -C -N"
 alias compose="docker-compose"
+alias gkubectl="gcloud preview container kubectl"
 
 ################################################################################
 # .bashrc
 ################################################################################
 alias edit_profile="${EDITOR} ${HOME}/.bashrc"
-alias resource_profile="source ${HOME}/.profile && source ${HOME}/.bashrc"
+alias resource_profile="source ${HOME}/.zprofile && source ${HOME}/.zshrc"
 
 ################################################################################
 # Docker
