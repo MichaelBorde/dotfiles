@@ -23,6 +23,7 @@ export VISUAL="emacs"
 export EDITOR="emacs"
 export CLICOLOR="1"
 export LSCOLORS="gxBxhxDxfxhxhxhxhxcxcx"
+export DISABLE_AUTO_TITLE=true # tmux
 
 ################################################################################
 # Aliases
