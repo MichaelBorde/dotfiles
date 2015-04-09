@@ -19,8 +19,8 @@ setopt interactivecomments
 ################################################################################
 # Env
 ################################################################################
-export VISUAL="emacs"
-export EDITOR="emacs"
+export VISUAL="nano"
+export EDITOR="nano"
 export CLICOLOR="1"
 export LSCOLORS="gxBxhxDxfxhxhxhxhxcxcx"
 export DISABLE_AUTO_TITLE=true # tmux
