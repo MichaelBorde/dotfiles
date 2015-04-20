@@ -1,8 +1,9 @@
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_05.jdk/Contents/Home
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home
 export GROOVY_HOME=/usr/local/opt/groovy/libexec
 export GRADLE_HOME=/usr/local/opt/gradle
 export MAVEN_OPTS="-Xmx1024m -Xms512m -Dfile.encoding=UTF8"
 export ANT_OPTS="-Xmx1024m -Xms512m -Dfile.encoding=UTF8"
+ANDROID_HOME="/usr/local/Cellar/android-sdk/24.1.2"
 
 RUBY_VERSION=2.1.5
 
