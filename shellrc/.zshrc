@@ -42,6 +42,26 @@ alias edit_profile="${EDITOR} ${HOME}/.bashrc"
 alias resource_profile="source ${HOME}/.zprofile && source ${HOME}/.zshrc"
 
 ################################################################################
+# Shell
+################################################################################
+tabs_to_spaces() {
+  local types="$1"
+  find . -name "$1" ! -type d -exec \
+    bash -c 'expand -t 2 "$0" > /tmp/e && mv /tmp/e "$0"' {} \;
+}
+
+new_script() {
+  local nom="$1"
+
+  if [[ ! -f "${nom}" ]]; then
+    echo '#!/usr/bin/env bash' > "${nom}"
+    chmod +x "${nom}"
+  fi
+  
+  "${EDITOR}" "${nom}"
+}
+
+################################################################################
 # Docker
 ################################################################################
 docker_stop_containers() {
@@ -73,12 +93,6 @@ docker_run_daemon() {
 
 docker_ip() {
   docker inspect -f {{.NetworkSettings.IPAddress}} "$1"
-}
-
-tabs_to_spaces() {
-  local types=$1
-  find . -name "$1" ! -type d -exec \
-    bash -c 'expand -t 2 "$0" > /tmp/e && mv /tmp/e "$0"' {} \;
 }
 
 ################################################################################
