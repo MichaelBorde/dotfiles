@@ -3,7 +3,7 @@
 ################################################################################
 export ZSH="${HOME}/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
-plugins=(git jump osx ruby tmuxinator)
+plugins=(gitfast jump osx ruby tmuxinator docker node npm web-search)
 source "${ZSH}/oh-my-zsh.sh"
 
 _completemarks() {
@@ -42,26 +42,6 @@ alias edit_profile="${EDITOR} ${HOME}/.bashrc"
 alias resource_profile="source ${HOME}/.zprofile && source ${HOME}/.zshrc"
 
 ################################################################################
-# Shell
-################################################################################
-tabs_to_spaces() {
-  local types="$1"
-  find . -name "$1" ! -type d -exec \
-    bash -c 'expand -t 2 "$0" > /tmp/e && mv /tmp/e "$0"' {} \;
-}
-
-new_script() {
-  local nom="$1"
-
-  if [[ ! -f "${nom}" ]]; then
-    echo '#!/usr/bin/env bash' > "${nom}"
-    chmod +x "${nom}"
-  fi
-  
-  "${EDITOR}" "${nom}"
-}
-
-################################################################################
 # Docker
 ################################################################################
 docker_stop_containers() {
@@ -76,13 +56,13 @@ docker_rm_dangling() {
 docker_run_bash() {
   local image="$1"
   shift 1
-  docker run -ti --name="${image}" "${image}" bash "$@"
+  docker run -ti --name "${image}" "${image}" bash "$@"
 }
 
 docker_exec_bash() {
   local container="$1"
   shift 1
-  docker exec -ti --name="${container}" "${container}" bash "$@"
+  docker exec -ti --name "${container}" "${container}" bash "$@"
 }
 
 docker_run_daemon() {
@@ -93,6 +73,12 @@ docker_run_daemon() {
 
 docker_ip() {
   docker inspect -f {{.NetworkSettings.IPAddress}} "$1"
+}
+
+tabs_to_spaces() {
+  local types=$1
+  find . -name "$1" ! -type d -exec \
+    bash -c 'expand -t 2 "$0" > /tmp/e && mv /tmp/e "$0"' {} \;
 }
 
 ################################################################################
