@@ -1,3 +1,13 @@
+(defun scroll-up-max () 
+  (interactive)
+  (condition-case nil (scroll-up)
+    (end-of-buffer (goto-char (point-max)))))
+
+(defun scroll-down-min () 
+  (interactive)
+  (condition-case nil (scroll-down)
+    (beginning-of-buffer (goto-char (point-min)))))
+
 (defun move-line-up ()
   (interactive)
   (transpose-lines 1)

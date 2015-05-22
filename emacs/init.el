@@ -11,9 +11,12 @@
  ;; If there is more than one, they won't work right.
  '(blink-cursor-mode nil)
  '(column-number-mode t)
+ '(delete-selection-mode t)
+ '(initial-scratch-message nil)
  '(js-indent-level 2)
  '(menu-bar-mode nil)
  '(python-indent-offset 2)
+ '(recentf-mode t)
  '(sh-basic-offset 2)
  '(sh-indentation 2)
  '(show-paren-mode t)

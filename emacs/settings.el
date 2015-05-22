@@ -1,3 +1,5 @@
+(setq initial-major-mode 'text-mode)
+
 (add-to-list 'default-frame-alist '(height . 50))
 (add-to-list 'default-frame-alist '(width . 140))
 (setq initial-scratch-message nil)
@@ -35,5 +37,10 @@
 (setq helm-imenu-fuzzy-match t)
 (setq helm-apropos-fuzzy-match t)
 
+(setq ac-use-fuzzy t)
+(setq ac-ignore-case t)
+
+(add-hook 'after-change-major-mode-hook
+          (lambda() (electric-indent-mode -1)))
 ;;(add-hook 'emacs-startup-hook
-          ;;(lambda () (delete-other-windows)) t)
+;;(lambda () (delete-other-windows)) t)
