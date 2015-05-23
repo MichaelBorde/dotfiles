@@ -2,23 +2,27 @@
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
 	  		 ("marmalade" . "https://marmalade-repo.org/packages/")
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
+(setq package-enable-at-startup nil)
 (package-initialize)
 
+;;(require 'benchmark-init)
+;;(benchmark-init/activate)
+
 (require 'misc)
-(require 'dockerfile-mode)
-
-(require 'adoc-mode)
-(add-to-list 'auto-mode-alist (cons "\\.adoc\\'" 'adoc-mode))
-
 (require 'undo-tree)
 (require 'helm-config)
+(require 'monokai-theme)
+(require 'expand-region)
+(require 'window-numbering)
+(autoload 'adoc-mode "adoc-mode" nil t)
+(autoload 'dockerfile-mode "dockerfile-mode" nil t)
+(autoload 'markdown-mode "markdown-mode" nil t)
+(autoload 'js2-mode "js2-mode" nil t)
+(autoload 'web-mode "web-mode" nil t)
 
-(autoload 'markdown-mode "markdown-mode" 
-  "Major mode for editing Markdown files" t)
+;;(require 'auto-complete)
+;;(require 'auto-complete-config)
+;;(add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
+;;(ac-config-default)
 
-(require 'auto-complete)
-(require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
-(ac-config-default)
-
-(require 'ac-helm)
+;;(require 'ac-helm)

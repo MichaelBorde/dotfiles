@@ -19,9 +19,6 @@
 (global-undo-tree-mode 1)
 (defalias 'redo 'undo-tree-redo)
 
-(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
-(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
-
 (load-theme 'monokai t)
 
 (helm-mode 1)
@@ -37,8 +34,8 @@
 (setq helm-imenu-fuzzy-match t)
 (setq helm-apropos-fuzzy-match t)
 
-(setq ac-use-fuzzy t)
-(setq ac-ignore-case t)
+;;(setq ac-use-fuzzy t)
+;;(setq ac-ignore-case t)
 
 (add-hook 'after-change-major-mode-hook
           (lambda() (electric-indent-mode -1)))
