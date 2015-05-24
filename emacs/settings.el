@@ -34,10 +34,8 @@
 (setq helm-imenu-fuzzy-match t)
 (setq helm-apropos-fuzzy-match t)
 
-;;(setq ac-use-fuzzy t)
-;;(setq ac-ignore-case t)
+(setq ac-use-fuzzy t)
+(setq ac-ignore-case t)
 
 (add-hook 'after-change-major-mode-hook
           (lambda() (electric-indent-mode -1)))
-;;(add-hook 'emacs-startup-hook
-;;(lambda () (delete-other-windows)) t)
