@@ -38,7 +38,10 @@ brew_update() {
   brew update
   brew upgrade
   brew cleanup
-  brew cask update
-  brew cask cleanup
 }
 alias mongod="mongod --config /usr/local/etc/mongod.conf"
+
+emw() {
+  local bin="/Applications/Emacs.app/Contents/MacOS/Emacs"
+  ${bin} "$@" &
+}

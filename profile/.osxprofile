@@ -3,7 +3,6 @@ export GROOVY_HOME=/usr/local/opt/groovy/libexec
 export GRADLE_HOME=/usr/local/opt/gradle
 export MAVEN_OPTS="-Xmx1024m -Xms512m -Dfile.encoding=UTF8"
 export ANT_OPTS="-Xmx1024m -Xms512m -Dfile.encoding=UTF8"
-export JAVA_OPTS="-Xmx1024m -Xms512m -Dfile.encoding=UTF8"
 export ANDROID_HOME="/usr/local/opt/android"
 
 RUBY_VERSION=2.1.5
@@ -21,5 +20,5 @@ ${JAVA_HOME}/bin:\
 /sbin:\
 /opt/X11/bin:\
 /usr/local/MacGPG2/bin:\
-/usr/local/opt/android/tools:\
-/usr/local/opt/android/platform-tools"
+${ANDROID_HOME}/tools:\
+${ANDROID_HOME}/platform-tools"
