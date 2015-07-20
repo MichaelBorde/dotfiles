@@ -34,12 +34,14 @@ change_java() {
 ################################################################################
 # Misc
 ################################################################################
+alias mongod="mongod --config /usr/local/etc/mongod.conf"
+alias nw="/Applications/nwjs.app/Contents/MacOS/nwjs"
+
 brew_update() {
   brew update
   brew upgrade
   brew cleanup
 }
-alias mongod="mongod --config /usr/local/etc/mongod.conf"
 
 emw() {
   local bin="/Applications/Emacs.app/Contents/MacOS/Emacs"
