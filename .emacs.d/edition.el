@@ -40,3 +40,7 @@
   (interactive)
   (save-excursion
     (indent-region (point-min) (point-max) nil)))
+
+(defun zsh ()
+  (interactive)
+  (ansi-term "/bin/zsh" "zsh"))

@@ -15,6 +15,8 @@
 (setq mouse-wheel-progressive-speed nil)
 (setq mouse-wheel-follow-mouse 't)
 (setq scroll-step 1)
+(setq system-uses-terminfo nil)
+(setq explicit-shell-file-name "/bin/zsh")
 
 (global-undo-tree-mode 1)
 (defalias 'redo 'undo-tree-redo)
