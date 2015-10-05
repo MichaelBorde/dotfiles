@@ -24,7 +24,7 @@
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
 (global-set-key (kbd "M-SPC") 'er/expand-region)
+(global-set-key (kbd "C-c C-s") 'sr-speedbar-toggle)
 
 ;;(global-set-key (kbd "C-n") 'new-empty-buffer) 
 ;;(global-set-key (kbd "<TAB>") 'ac-complete-with-helm)
-;;(global-set-key (kbd "C-c C-s") 'sr-speedbar-toggle)

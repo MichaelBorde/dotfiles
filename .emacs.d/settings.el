@@ -41,3 +41,5 @@
 
 (add-hook 'after-change-major-mode-hook
           (lambda() (electric-indent-mode -1)))
+
+(setq sr-speedbar-right-side nil)
