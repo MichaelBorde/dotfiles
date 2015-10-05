@@ -17,14 +17,6 @@ setopt no_nomatch
 setopt interactivecomments
 
 ################################################################################
-# Env
-################################################################################
-export VISUAL="emacs"
-export EDITOR="emacs"
-export CLICOLOR="1"
-export LSCOLORS="gxBxhxDxfxhxhxhxhxcxcx"
-
-################################################################################
 # Aliases
 ################################################################################
 alias ls="ls -p"
@@ -38,7 +30,7 @@ alias gkubectl="gcloud preview container kubectl"
 ################################################################################
 # .bashrc
 ################################################################################
-alias edit_profile="${EDITOR} ${HOME}/.bashrc"
+alias edit_profile="${EDITOR} ${HOME}/.zshrc"
 alias resource_profile="source ${HOME}/.zprofile && source ${HOME}/.zshrc"
 
 ################################################################################
@@ -72,11 +64,11 @@ docker_run_daemon() {
 }
 
 docker_ip() {
-  docker inspect -f {{.NetworkSettings.IPAddress}} "$1"
+  docker inspect -f "{{.NetworkSettings.IPAddress}}" "$1"
 }
 
 tabs_to_spaces() {
-  local types=$1
+  local types="$1"
   find . -name "$1" ! -type d -exec \
     bash -c 'expand -t 2 "$0" > /tmp/e && mv /tmp/e "$0"' {} \;
 }
@@ -85,7 +77,8 @@ tabs_to_spaces() {
 # Git
 ################################################################################
 gpull() {
-  git fetch && git pull --rebase origin "$(_current_branch)"
+  git fetch
+  git pull --rebase origin "$(_current_branch)"
 }
 
 gpush() {
@@ -93,7 +86,8 @@ gpush() {
 }
 
 grebase() {
-  git fetch && git rebase "origin/$(_current_branch)"
+  git fetch
+  git rebase "origin/$(_current_branch)"
 }
 
 _current_branch() {
@@ -103,16 +97,71 @@ _current_branch() {
 ################################################################################
 # Other .dotfiles
 ################################################################################
-[[ -f "${HOME}/.osxrc" ]] && source "${HOME}/.osxrc"
-[[ -f "${HOME}/.localrc" ]] && source "${HOME}/.localrc"
+if [[ -f "${HOME}/.localrc" ]]; then
+  source "${HOME}/.localrc"
+fi
 
 ################################################################################
 # Ruby
 ################################################################################
 RAILS_ENV=test
-[[ -s "${HOME}/.rvm/scripts/rvm" ]] && . "${HOME}/.rvm/scripts/rvm"
+if [[ -s "${HOME}/.rvm/scripts/rvm" ]]; then
+  source "${HOME}/.rvm/scripts/rvm"
+fi
 
 ################################################################################
 # JavaScript
 ################################################################################
 source  "${HOME}/.nvm/nvm.sh"
+
+if [[ "$(uname)" == "Darwin" ]]; then
+  ################################################################################
+  # docker-machine
+  ################################################################################
+  docker_start() {
+    docker-machine start dev
+    eval "$(docker-machine env dev)"
+  }
+
+  ################################################################################
+  # Finder
+  ################################################################################
+  show_all_files() {
+    defaults write com.apple.finder AppleShowAllFiles TRUE
+    killall Finder
+  }
+
+  hide_secret_files() {
+    defaults write com.apple.finder AppleShowAllFiles FALSE
+    killall Finder
+  }
+
+  ################################################################################
+  # Java
+  ################################################################################
+  alias ls_java='/usr/libexec/java_home -V 2>&1 \
+| grep -E "\d.\d.\d_\d\d" | cut -d , -f 1 | colrm 1 4 | grep -v Home'
+
+  change_java() {
+    export JAVA_HOME="$(/usr/libexec/java_home -v "$1")"
+    export PATH="${JAVA_HOME}/bin:${PATH}"
+    java -version
+  }
+
+  ################################################################################
+  # Misc
+  ################################################################################
+  alias mongod="mongod --config /usr/local/etc/mongod.conf"
+  alias nw="/Applications/nwjs.app/Contents/MacOS/nwjs"
+
+  brew_update() {
+    brew update
+    brew upgrade
+    brew cleanup
+  }
+
+  emw() {
+    local bin="/Applications/Emacs.app/Contents/MacOS/Emacs"
+    ${bin} "$@" &
+  }
+fi
