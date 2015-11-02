@@ -26,6 +26,7 @@ alias tmuxa="tmux a -t 0"
 alias ssh_tunnel="ssh -D 8080 -C -N"
 alias compose="docker-compose"
 alias gkubectl="gcloud preview container kubectl"
+alias wanip='dig +short myip.opendns.com @resolver1.opendns.com'
 
 ################################################################################
 # .bashrc

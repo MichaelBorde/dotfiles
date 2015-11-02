@@ -16,6 +16,8 @@
 (require 'window-numbering)
 (require 'auto-complete)
 (require 'auto-complete-config)
+(require 'helm-ls-git)
+(require 'ac-helm)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
 (ac-config-default)
 
