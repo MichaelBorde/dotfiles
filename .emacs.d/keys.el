@@ -12,8 +12,9 @@
 (global-set-key (kbd "M-d") 'duplicate-current-line-or-region)
 (global-set-key (kbd "C-k") 'kill-whole-line)
 (global-set-key (kbd "C-c k") 'kill-line)
-(global-set-key (kbd "M-P") 'move-line-up)
-(global-set-key (kbd "M-N") 'move-line-down)
+(global-set-key (kbd "M-P") 'move-text-up)
+(global-set-key (kbd "M-N") 'move-text-down)
+(global-set-key (kbd "C-c TAB") 'indent-buffer)
 
 ;; Commands
 (global-set-key (kbd "C-c h") 'helm-command-prefix)
@@ -27,5 +28,3 @@
 (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action)
 (define-key helm-map (kbd "C-z")  'helm-select-action)
 (global-set-key (kbd "M-SPC") 'er/expand-region)
-(global-set-key (kbd "C-c C-s") 'sr-speedbar-toggle)
-

@@ -8,17 +8,6 @@
   (condition-case nil (scroll-down)
     (beginning-of-buffer (goto-char (point-min)))))
 
-(defun move-line-up ()
-  (interactive)
-  (transpose-lines 1)
-  (forward-line -2))
-
-(defun move-line-down ()
-  (interactive)
-  (forward-line 1)
-  (transpose-lines 1)
-  (forward-line -1))
-
 (defun duplicate-current-line-or-region (arg)
   (interactive "p")
   (let (beg end (origin (point)))
