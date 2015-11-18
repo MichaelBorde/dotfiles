@@ -31,8 +31,8 @@ alias wanip='dig +short myip.opendns.com @resolver1.opendns.com'
 ################################################################################
 # .bashrc
 ################################################################################
-alias edit_profile="${EDITOR} ${HOME}/.zshrc"
-alias resource_profile="source ${HOME}/.zprofile && source ${HOME}/.zshrc"
+alias edit-profile="${EDITOR} ${HOME}/.zshrc"
+alias resource-profile="source ${HOME}/.zprofile && source ${HOME}/.zshrc"
 
 ################################################################################
 # Docker
@@ -154,15 +154,21 @@ if [[ "$(uname)" == "Darwin" ]]; then
   ################################################################################
   alias mongod="mongod --config /usr/local/etc/mongod.conf"
   alias nw="/Applications/nwjs.app/Contents/MacOS/nwjs"
+  alias es="emacs --daemon"
+  alias emw="emacsclient -c -n"
+  alias em="emacsclient -t"
 
-  brew_update() {
+  brew-update() {
     brew update
     brew upgrade
     brew cleanup
   }
-
-  emw() {
-    local bin="/Applications/Emacs.app/Contents/MacOS/Emacs"
-    ${bin} "$@" &
+  
+  resize-images() {
+    local file
+    while read file; do
+      echo "Resizing ${file}"
+      convert "${file}" -resize '2000000@>' "${file}"
+    done < <(find . -maxdepth 1 -iname "*.jpg" -o -iname "*.png")
   }
 fi

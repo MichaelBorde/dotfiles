@@ -17,6 +17,7 @@
 ;;(require 'auto-complete)
 ;;(require 'ac-helm)
 ;;(require 'move-text)
+;;(require 'sr-speedbar)
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
 (ac-config-default)

@@ -17,6 +17,7 @@
 (setq scroll-step 1)
 (setq system-uses-terminfo nil)
 (setq explicit-shell-file-name "/bin/zsh")
+(menu-bar-mode -1)
 
 (global-undo-tree-mode 1)
 (defalias 'redo 'undo-tree-redo)
@@ -44,3 +45,8 @@
 
 (add-hook 'after-change-major-mode-hook
           (lambda() (electric-indent-mode -1)))
+
+(setq speedbar-directory-unshown-regexp "^$")
+(setq speedbar-show-unknown-files t)
+(setq sr-speedbar-right-side nil)
+(setq sr-speedbar-skip-other-window-p t)
