@@ -5,6 +5,7 @@ if [[ "$(uname)" == "Darwin" ]]; then
   export MAVEN_OPTS="-Xmx1024m -Xms512m -Dfile.encoding=UTF8"
   export ANT_OPTS="-Xmx1024m -Xms512m -Dfile.encoding=UTF8"
   export ANDROID_HOME="/usr/local/opt/android"
+  export MONO_GAC_PREFIX="/usr/local"
 
   RUBY_VERSION=2.1.5
 
