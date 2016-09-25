@@ -17,11 +17,13 @@ alias ll="ls -lhp"
 alias be="bundle exec"
 alias tmuxa="tmux a -t 0"
 alias ssh-tunnel="ssh -D 8080 -C -N"
-alias compose="docker-compose"
-alias gkubectl="gcloud preview container kubectl"
 alias wanip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias enip='ifconfig | grep -Eo "inet (addr:)?([0-9]*\.){3}[0-9]*" | grep -Eo "([0-9]*\.){3}[0-9]*" | grep -v "127.0.0.1"'
-alias rn='react-native'
+alias ls-java='/usr/libexec/java_home -V 2>&1 \
+| grep -E "\d.\d.\d_\d\d" | cut -d , -f 1 | colrm 1 4 | grep -v Home'
+alias mongod="mongod --config /usr/local/etc/mongod.conf"
+alias es="emacs --daemon"
+alias em="emacsclient -t"
 
 ################################################################################
 # .bashrc
@@ -36,8 +38,11 @@ docker-stop-containers() {
   docker stop $(docker ps -a -q)
 }
 
-docker-rm-dangling() {
+docker-clean-containers() {
   docker ps --no-trunc -a -q | xargs docker rm
+}
+
+docker-clean-images() {
   docker images -q --filter "dangling=true" | xargs docker rmi
 }
 
@@ -63,12 +68,6 @@ docker-ip() {
   docker inspect -f "{{.NetworkSettings.IPAddress}}" "$1"
 }
 
-tabs-to-spaces() {
-  local types="$1"
-  find . -name "$1" ! -type d -exec \
-    bash -c 'expand -t 2 "$0" > /tmp/e && mv /tmp/e "$0"' {} \;
-}
-
 ################################################################################
 # Git
 ################################################################################
@@ -79,11 +78,6 @@ gpull() {
 
 gpush() {
   git push origin "$(_current_branch)"
-}
-
-grebase() {
-  git fetch
-  git rebase "origin/$(_current_branch)"
 }
 
 _current_branch() {
@@ -131,38 +125,17 @@ add-timestamp() {
   mv "${file}" "${without_ext}-${timestamp}.${ext}"
 }
 
-################################################################################
-# Finder
-################################################################################
-show_all_files() {
-  defaults write com.apple.finder AppleShowAllFiles TRUE
-  killall Finder
+tabs-to-spaces() {
+  local types="$1"
+  find . -name "$1" ! -type d -exec \
+    bash -c 'expand -t 2 "$0" > /tmp/e && mv /tmp/e "$0"' {} \;
 }
 
-hide_secret_files() {
-  defaults write com.apple.finder AppleShowAllFiles FALSE
-  killall Finder
-}
-
-################################################################################
-# Java
-################################################################################
-alias ls_java='/usr/libexec/java_home -V 2>&1 \
-| grep -E "\d.\d.\d_\d\d" | cut -d , -f 1 | colrm 1 4 | grep -v Home'
-
-change_java() {
+change-java() {
   export JAVA_HOME="$(/usr/libexec/java_home -v "$1")"
   export PATH="${JAVA_HOME}/bin:${PATH}"
   java -version
 }
-
-################################################################################
-# Misc
-  ################################################################################
-alias mongod="mongod --config /usr/local/etc/mongod.conf"
-alias nw="/Applications/nwjs.app/Contents/MacOS/nwjs"
-alias es="emacs --daemon"
-alias em="emacsclient -t"
 
 brew-update() {
   brew update
@@ -178,5 +151,21 @@ resize-images() {
   done < <(find . -maxdepth 1 -iname "*.jpg" -o -iname "*.png")
 }
 
+################################################################################
+# Finder
+################################################################################
+show-all-files() {
+  defaults write com.apple.finder AppleShowAllFiles TRUE
+  killall Finder
+}
+
+hide-secret-files() {
+  defaults write com.apple.finder AppleShowAllFiles FALSE
+  killall Finder
+}
+
+################################################################################
+# System
+################################################################################
 ulimit -n 65536
 ulimit -u 2048

@@ -19,6 +19,7 @@
 (setq explicit-shell-file-name "/bin/zsh")
 (menu-bar-mode -1)
 (setq create-lockfiles nil)
+(setq vc-follow-symlinks nil)
 
 (global-undo-tree-mode 1)
 (defalias 'redo 'undo-tree-redo)
