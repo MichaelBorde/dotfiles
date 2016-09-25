@@ -17,17 +17,6 @@
 (global-set-key (kbd "C-c TAB") 'indent-buffer)
 
 ;; Commands
-(global-set-key (kbd "C-c h") 'helm-command-prefix)
 (global-unset-key (kbd "C-x c"))
-(global-set-key (kbd "M-x") 'helm-M-x)
-(global-set-key (kbd "C-x b") 'helm-mini)
-(global-set-key (kbd "C-x C-b") 'helm-buffers-list)
-(global-set-key (kbd "C-x C-f") 'helm-find-files)
-(global-set-key (kbd "M-y") 'helm-show-kill-ring)
-(global-set-key (kbd "M-s o") 'helm-occur)
-(define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action)
-(define-key helm-map (kbd "C-i") 'helm-execute-persistent-action)
-(define-key helm-map (kbd "C-z")  'helm-select-action)
 (global-set-key (kbd "M-SPC") 'er/expand-region)
-(global-set-key (kbd "C-c b") 'sr-speedbar-toggle)
-(global-set-key (kbd "C-c C-b") 'sr-speedbar-select-window)
+

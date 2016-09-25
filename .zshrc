@@ -6,13 +6,6 @@ ZSH_THEME="robbyrussell"
 plugins=(gitfast jump osx ruby tmuxinator docker node npm web-search)
 source "${ZSH}/oh-my-zsh.sh"
 
-_completemarks() {
-  reply=($(ls "${MARKPATH}"))
-}
-
-compctl -K _completemarks jump
-compctl -K _completemarks unmark
-
 setopt no_nomatch
 setopt interactivecomments
 
@@ -23,11 +16,12 @@ alias ls="ls -p"
 alias ll="ls -lhp"
 alias be="bundle exec"
 alias tmuxa="tmux a -t 0"
-alias ssh_tunnel="ssh -D 8080 -C -N"
+alias ssh-tunnel="ssh -D 8080 -C -N"
 alias compose="docker-compose"
 alias gkubectl="gcloud preview container kubectl"
 alias wanip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias enip='ifconfig | grep -Eo "inet (addr:)?([0-9]*\.){3}[0-9]*" | grep -Eo "([0-9]*\.){3}[0-9]*" | grep -v "127.0.0.1"'
+alias rn='react-native'
 
 ################################################################################
 # .bashrc
@@ -38,38 +32,38 @@ alias resource-profile="source ${HOME}/.zprofile && source ${HOME}/.zshrc"
 ################################################################################
 # Docker
 ################################################################################
-docker_stop_containers() {
+docker-stop-containers() {
   docker stop $(docker ps -a -q)
 }
 
-docker_rm_dangling() {
+docker-rm-dangling() {
   docker ps --no-trunc -a -q | xargs docker rm
   docker images -q --filter "dangling=true" | xargs docker rmi
 }
 
-docker_run_bash() {
+docker-run-bash() {
   local image="$1"
   shift 1
   docker run -ti --name "${image}" "${image}" bash "$@"
 }
 
-docker_exec_bash() {
+docker-exec-bash() {
   local container="$1"
   shift 1
   docker exec -ti --name "${container}" "${container}" bash "$@"
 }
 
-docker_run_daemon() {
+docker-run-daemon() {
   local image="$1"
   shift 1
   docker run -d --name "${image}" "$@" "${image}"
 }
 
-docker_ip() {
+docker-ip() {
   docker inspect -f "{{.NetworkSettings.IPAddress}}" "$1"
 }
 
-tabs_to_spaces() {
+tabs-to-spaces() {
   local types="$1"
   find . -name "$1" ! -type d -exec \
     bash -c 'expand -t 2 "$0" > /tmp/e && mv /tmp/e "$0"' {} \;
@@ -127,11 +121,6 @@ if type dnvm.sh > /dev/null; then
 fi
 
 ################################################################################
-# JavaScript
-################################################################################
-source  "${HOME}/.nvm/nvm.sh"
-
-################################################################################
 # Misc
 ################################################################################
 add-timestamp() {
@@ -142,62 +131,52 @@ add-timestamp() {
   mv "${file}" "${without_ext}-${timestamp}.${ext}"
 }
 
-if [[ "$(uname)" == "Darwin" ]]; then
-  ################################################################################
-  # docker-machine
-  ################################################################################
-  docker_start() {
-    docker-machine start dev
-    eval "$(docker-machine env dev)"
-  }
+################################################################################
+# Finder
+################################################################################
+show_all_files() {
+  defaults write com.apple.finder AppleShowAllFiles TRUE
+  killall Finder
+}
 
-  ################################################################################
-  # Finder
-  ################################################################################
-  show_all_files() {
-    defaults write com.apple.finder AppleShowAllFiles TRUE
-    killall Finder
-  }
+hide_secret_files() {
+  defaults write com.apple.finder AppleShowAllFiles FALSE
+  killall Finder
+}
 
-  hide_secret_files() {
-    defaults write com.apple.finder AppleShowAllFiles FALSE
-    killall Finder
-  }
-
-  ################################################################################
-  # Java
-  ################################################################################
-  alias ls_java='/usr/libexec/java_home -V 2>&1 \
+################################################################################
+# Java
+################################################################################
+alias ls_java='/usr/libexec/java_home -V 2>&1 \
 | grep -E "\d.\d.\d_\d\d" | cut -d , -f 1 | colrm 1 4 | grep -v Home'
 
-  change_java() {
-    export JAVA_HOME="$(/usr/libexec/java_home -v "$1")"
-    export PATH="${JAVA_HOME}/bin:${PATH}"
-    java -version
-  }
+change_java() {
+  export JAVA_HOME="$(/usr/libexec/java_home -v "$1")"
+  export PATH="${JAVA_HOME}/bin:${PATH}"
+  java -version
+}
 
+################################################################################
+# Misc
   ################################################################################
-  # Misc
-  ################################################################################
-  alias mongod="mongod --config /usr/local/etc/mongod.conf"
-  alias nw="/Applications/nwjs.app/Contents/MacOS/nwjs"
-  alias es="emacs --daemon"
-  alias em="emacsclient -t"
+alias mongod="mongod --config /usr/local/etc/mongod.conf"
+alias nw="/Applications/nwjs.app/Contents/MacOS/nwjs"
+alias es="emacs --daemon"
+alias em="emacsclient -t"
 
-  brew-update() {
-    brew update
-    brew upgrade
-    brew cleanup
-  }
+brew-update() {
+  brew update
+  brew upgrade
+  brew cleanup
+}
 
-  resize-images() {
-    local file
-    while read file; do
-      echo "Resizing ${file}"
-      convert "${file}" -resize "2000000@>" "${file}"
-    done < <(find . -maxdepth 1 -iname "*.jpg" -o -iname "*.png")
-  }
+resize-images() {
+  local file
+  while read file; do
+    echo "Resizing ${file}"
+    convert "${file}" -resize "2000000@>" "${file}"
+  done < <(find . -maxdepth 1 -iname "*.jpg" -o -iname "*.png")
+}
 
-  ulimit -n 65536
-  ulimit -u 2048
-fi
+ulimit -n 65536
+ulimit -u 2048

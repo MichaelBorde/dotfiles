@@ -18,35 +18,13 @@
 (setq system-uses-terminfo nil)
 (setq explicit-shell-file-name "/bin/zsh")
 (menu-bar-mode -1)
+(setq create-lockfiles nil)
 
 (global-undo-tree-mode 1)
 (defalias 'redo 'undo-tree-redo)
 
 (load-theme 'monokai t)
 
-(helm-mode 1)
-(helm-autoresize-mode t)
-(setq helm-autoresize-max-height 30)
-(setq helm-autoresize-min-height 30)
-(setq helm-buffers-fuzzy-matching t)
-(setq helm-recentf-fuzzy-match t)
-(setq helm-lisp-fuzzy-completion t) 
-(setq helm-locate-fuzzy-match t)
-(setq helm-M-x-fuzzy-match t)
-(setq helm-semantic-fuzzy-match t)
-(setq helm-imenu-fuzzy-match t)
-(setq helm-apropos-fuzzy-match t)
-(setq helm-lisp-fuzzy-completion t)
-(setq helm-mode-fuzzy-match t)
-(setq helm-completion-in-region-fuzzy-match t)
-
-(setq ac-use-fuzzy t)
-(setq ac-ignore-case t)
-
 (add-hook 'after-change-major-mode-hook
           (lambda() (electric-indent-mode -1)))
 
-(setq speedbar-directory-unshown-regexp "^$")
-(setq speedbar-show-unknown-files t)
-(setq sr-speedbar-right-side nil)
-(setq sr-speedbar-skip-other-window-p t)
