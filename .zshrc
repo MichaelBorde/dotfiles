@@ -38,12 +38,22 @@ docker-stop-containers() {
   docker stop $(docker ps -a -q)
 }
 
+docker-clean() {
+  docker-clean-containers
+  docker-clean-images
+  docker-clean-volumes
+}
+
 docker-clean-containers() {
-  docker ps --no-trunc -a -q | xargs docker rm
+  docker rm -v $(docker ps -a -q -f status=exited)
 }
 
 docker-clean-images() {
-  docker images -q --filter "dangling=true" | xargs docker rmi
+  docker rmi $(docker images -f "dangling=true" -q)
+}
+
+docker-clean-volumes() {
+  docker volume rm $(docker volume ls -qf dangling=true)
 }
 
 docker-run-bash() {
@@ -169,3 +179,5 @@ hide-secret-files() {
 ################################################################################
 ulimit -n 65536
 ulimit -u 2048
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

@@ -1,6 +1,7 @@
 ;; settings
 (helm-mode 1)
 (helm-autoresize-mode t)
+(helm-descbinds-mode t)
 (setq helm-autoresize-max-height 30)
 (setq helm-autoresize-min-height 30)
 (setq helm-buffers-fuzzy-matching t)

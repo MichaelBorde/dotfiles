@@ -1,7 +1,5 @@
 (require 'package)
-(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-	  		 ("marmalade" . "https://marmalade-repo.org/packages/")
-                         ("melpa" . "http://melpa.milkbox.net/packages/")))
+(setq package-archives '(("melpa" . "http://melpa.milkbox.net/packages/")))
 (setq package-enable-at-startup nil)
 (package-initialize)
 
@@ -11,6 +9,8 @@
 (require 'misc)
 ;;(require 'undo-tree)
 ;;(require 'helm-config)
+;;(require 'helm-ls-git)
+;;(require 'helm-descbinds)
 ;;(require 'monokai-theme)
 ;;(require 'expand-region)
 ;;(require 'window-numbering)
@@ -19,6 +19,10 @@
 ;;(require 'move-text)
 ;;(require 'sr-speedbar)
 ;;(require 'reveal-in-osx-finder)
+
+;;(require ‘pbcopy)
+(turn-on-pbcopy)
+
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
 (ac-config-default)

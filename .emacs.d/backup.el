@@ -1,9 +1,10 @@
-(defvar backup-directory (concat user-emacs-directory "backups"))
+(defvar backup-directory (concat user-emacs-directory "backups/"))
 
 (if (not (file-exists-p backup-directory))
     (make-directory backup-directory t))
 
 (setq backup-directory-alist `((".*" . ,backup-directory)))
+(setq auto-save-file-name-transforms `((".*" ,backup-directory t)))
 
 (setq make-backup-files t
       backup-by-copying t

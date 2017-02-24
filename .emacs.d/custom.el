@@ -8,7 +8,11 @@
  '(delete-selection-mode t)
  '(initial-scratch-message nil)
  '(js-indent-level 2)
+ '(js2-basic-offset 2)
  '(menu-bar-mode nil)
+ '(package-selected-packages
+   (quote
+    (slack helm-descbinds helm-ls-git pbcopy simpleclip window-numbering websocket web-mode undo-tree sr-speedbar reveal-in-osx-finder request oauth2 move-text monokai-theme markdown-mode magit js2-mode expand-region emojify dockerfile-mode csharp-mode circe benchmark-init alert adoc-mode ac-helm)))
  '(python-indent-offset 2)
  '(recentf-mode t)
  '(sh-basic-offset 2)
