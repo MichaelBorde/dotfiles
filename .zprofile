@@ -6,14 +6,13 @@ if [[ "$(uname)" == "Darwin" ]]; then
   export ANT_OPTS="-Xmx1024m -Xms512m -Dfile.encoding=UTF8"
   export ANDROID_HOME="/usr/local/opt/android"
   export MONO_GAC_PREFIX="/usr/local"
-
-  RUBY_VERSION=2.1.5
-
+  export RUBY_VERSION=2.3.3
+  
   export PATH="\
 ${HOME}/.rvm/gems/ruby-${RUBY_VERSION}/bin:\
 ${HOME}/.rvm/bin:\
 ${JAVA_HOME}/bin:\
-/Applications/Postgres.app/Contents/Versions/9.4/bin:\
+/Applications/Postgres.app/Contents/Versions/latest/bin:\
 /usr/local/sbin:\
 /usr/local/bin:\
 /usr/bin:\
@@ -26,8 +25,8 @@ ${ANDROID_HOME}/tools:\
 ${ANDROID_HOME}/platform-tools"
 fi
 
-export EDITOR="emacsclient -t"
-export ALTERNATE_EDITOR="emacs"
+export EDITOR="emacs"
+export ALTERNATE_EDITOR="nano"
 export VISUAL="${EDITOR}"
 export CLICOLOR="1"
 export LSCOLORS="gxBxhxDxfxhxhxhxhxcxcx"
