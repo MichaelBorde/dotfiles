@@ -3,7 +3,12 @@
 ################################################################################
 export ZSH="${HOME}/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
-plugins=(gitfast jump osx ruby tmuxinator docker node npm web-search)
+plugins=(gitfast jump ruby docker node npm web-search)
+
+if [[ "$(uname)"=="Darwin" ]]; then
+  plugins+=(osx)
+fi
+
 source "${ZSH}/oh-my-zsh.sh"
 
 setopt no_nomatch
@@ -16,17 +21,13 @@ alias ls="ls -p"
 alias ll="ls -lhp"
 alias be="bundle exec"
 alias tmuxa="tmux a -t 0"
-alias ssh-tunnel="ssh -D 8080 -C -N"
 alias wanip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias enip='ifconfig | grep -Eo "inet (addr:)?([0-9]*\.){3}[0-9]*" | grep -Eo "([0-9]*\.){3}[0-9]*" | grep -v "127.0.0.1"'
-alias ls-java='/usr/libexec/java_home -V 2>&1 \
-| grep -E "\d.\d.\d_\d\d" | cut -d , -f 1 | colrm 1 4 | grep -v Home'
-alias mongod="mongod --config /usr/local/etc/mongod.conf"
 alias es="emacs --daemon"
 alias em="emacsclient -t"
 
 ################################################################################
-# .bashrc
+# .zshrc
 ################################################################################
 alias edit-profile="${EDITOR} ${HOME}/.zshrc"
 alias resource-profile="source ${HOME}/.zprofile && source ${HOME}/.zshrc"
@@ -79,22 +80,6 @@ docker-ip() {
 }
 
 ################################################################################
-# Git
-################################################################################
-gpull() {
-  git fetch
-  git pull --rebase origin "$(_current_branch)"
-}
-
-gpush() {
-  git push origin "$(_current_branch)"
-}
-
-_current_branch() {
-  git rev-parse --abbrev-ref HEAD
-}
-
-################################################################################
 # Kubernetes
 ################################################################################
 kube-log() {
@@ -114,14 +99,32 @@ fi
 ################################################################################
 RAILS_ENV=test
 if [[ -s "${HOME}/.rvm/scripts/rvm" ]]; then
-  source "${HOME}/.rvm/scripts/rvm"
+  "${HOME}/.rvm/scripts/rvm"
 fi
+export PATH="$PATH:${HOME}/.rvm/bin"
 
 ################################################################################
-# .NET
+# JavaScript
 ################################################################################
-if type dnvm.sh > /dev/null; then
-  source dnvm.sh
+install-global-packages() {
+  local -a packages
+  packages=("grunt-cli" "http-server" "npm-check" "ionic" "cordova" \
+"ios-deploy" "ios-sim" "knex")
+  npm install -g  "${packages[@]}"
+}
+
+################################################################################
+# Java
+################################################################################
+if [[ "$(uname)"=="Darwin" ]]; then
+   alias ls-java='/usr/libexec/java_home -V 2>&1 \
+         | grep -E "\d.\d.\d_\d\d" | cut -d , -f 1 | colrm 1 4 | grep -v Home'
+
+   change-java() {
+     export JAVA_HOME="$(/usr/libexec/java_home -v "$1")"
+     export PATH="${JAVA_HOME}/bin:${PATH}"
+     java -version
+   }
 fi
 
 ################################################################################
@@ -141,17 +144,13 @@ tabs-to-spaces() {
     bash -c 'expand -t 2 "$0" > /tmp/e && mv /tmp/e "$0"' {} \;
 }
 
-change-java() {
-  export JAVA_HOME="$(/usr/libexec/java_home -v "$1")"
-  export PATH="${JAVA_HOME}/bin:${PATH}"
-  java -version
-}
-
-brew-update() {
-  brew update
-  brew upgrade
-  brew cleanup
-}
+if [[ "$(uname)"=="Darwin" ]]; then
+  brew-update() {
+    brew update
+    brew upgrade
+    brew cleanup
+  }
+fi
 
 resize-images() {
   local file
@@ -162,22 +161,7 @@ resize-images() {
 }
 
 ################################################################################
-# Finder
-################################################################################
-show-all-files() {
-  defaults write com.apple.finder AppleShowAllFiles TRUE
-  killall Finder
-}
-
-hide-secret-files() {
-  defaults write com.apple.finder AppleShowAllFiles FALSE
-  killall Finder
-}
-
-################################################################################
 # System
 ################################################################################
 ulimit -n 65536
 ulimit -u 2048
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
