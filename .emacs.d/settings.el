@@ -24,7 +24,7 @@
 (global-undo-tree-mode 1)
 (defalias 'redo 'undo-tree-redo)
 
-(load-theme 'monokai t)
+(load-theme 'zenburn t)
 
 (add-hook 'after-change-major-mode-hook
           (lambda() (electric-indent-mode -1)))

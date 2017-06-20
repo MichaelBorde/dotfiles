@@ -11,7 +11,7 @@
 ;;(require 'helm-config)
 ;;(require 'helm-ls-git)
 ;;(require 'helm-descbinds)
-;;(require 'monokai-theme)
+;;(require 'zenburn-theme)
 ;;(require 'expand-region)
 ;;(require 'window-numbering)
 ;;(require 'auto-complete)

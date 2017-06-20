@@ -26,6 +26,7 @@ alias enip='ifconfig | grep -Eo "inet (addr:)?([0-9]*\.){3}[0-9]*" | grep -Eo "(
 alias es="emacs --daemon"
 alias em="emacsclient -t"
 alias uuid="uuidgen | tr '[:upper:]' '[:lower:]'"
+alias compose="docker-compose"
 
 ################################################################################
 # .zshrc
@@ -41,9 +42,9 @@ docker_stop_containers() {
 }
 
 docker_clean() {
-  docker-clean-containers
-  docker-clean-images
-  docker-clean-volumes
+  docker_clean_containers
+  docker_clean_images
+  docker_clean_volumes
 }
 
 docker_clean_containers() {
@@ -107,9 +108,9 @@ export PATH="$PATH:${HOME}/.rvm/bin"
 ################################################################################
 # JavaScript
 ################################################################################
-install_global_packages() {
+npm_install_global_packages() {
   local -a packages
-  packages=("grunt-cli" "http-server" "npm-check" "ionic" "cordova" \
+  packages=("npm" "grunt-cli" "http-server" "npm-check" "ionic" "cordova" \
 "ios-deploy" "ios-sim" "knex")
   npm install -g  "${packages[@]}"
 }
