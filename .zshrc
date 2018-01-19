@@ -27,6 +27,12 @@ alias es="emacs --daemon"
 alias em="emacsclient -t"
 alias uuid="uuidgen | tr '[:upper:]' '[:lower:]'"
 alias compose="docker-compose"
+alias rn="react-native"
+
+if [[ "$(uname)"=="Darwin" ]]; then
+  alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
+  alias chrome-canary="/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary"
+fi
 
 ################################################################################
 # .zshrc
@@ -111,7 +117,7 @@ export PATH="$PATH:${HOME}/.rvm/bin"
 npm_install_global_packages() {
   local -a packages
   packages=("npm" "grunt-cli" "http-server" "npm-check" "ionic" "cordova" \
-"ios-deploy" "ios-sim" "knex")
+"ios-deploy" "ios-sim" "knex" "react-native-cli" "prettier")
   npm install -g  "${packages[@]}"
 }
 
