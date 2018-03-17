@@ -23,8 +23,6 @@ alias be="bundle exec"
 alias tmuxa="tmux a -t 0"
 alias wanip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias enip='ifconfig | grep -Eo "inet (addr:)?([0-9]*\.){3}[0-9]*" | grep -Eo "([0-9]*\.){3}[0-9]*" | grep -v "127.0.0.1"'
-alias es="emacs --daemon"
-alias em="emacsclient -t"
 alias uuid="uuidgen | tr '[:upper:]' '[:lower:]'"
 alias compose="docker-compose"
 alias rn="react-native"
@@ -171,9 +169,3 @@ resize_images() {
     convert "${file}" -resize "2000000@>" "${file}"
   done < <(find . -maxdepth 1 -iname "*.jpg" -o -iname "*.png")
 }
-
-################################################################################
-# System
-################################################################################
-ulimit -n 65536
-ulimit -u 2048

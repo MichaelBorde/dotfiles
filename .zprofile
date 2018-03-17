@@ -25,8 +25,8 @@ ${ANDROID_HOME}/tools:\
 ${ANDROID_HOME}/platform-tools"
 fi
 
-export EDITOR="emacs"
-export ALTERNATE_EDITOR="nano"
+export EDITOR="nano"
+export ALTERNATE_EDITOR="emacs"
 export VISUAL="${EDITOR}"
 export CLICOLOR="1"
 export LSCOLORS="gxBxhxDxfxhxhxhxhxcxcx"
