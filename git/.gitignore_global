@@ -1,1 +1,15 @@
-/Users/michael/Google Drive/Systèmes/MacOS/.gitignore_global
+.DS_Store
+.idea
+*.iml
+.classpath
+.project
+target/
+.settings/
+node_modules
+atlassian-ide-plugin.xml
+.rakeTasks
+.generators
+.ignore/
+.virtualenv
+.vscode
+.gitconfig.local

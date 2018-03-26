@@ -2,8 +2,8 @@
 # ZSH
 ################################################################################
 export ZSH="${HOME}/.oh-my-zsh"
-ZSH_THEME="robbyrussell"
-plugins=(gitfast jump ruby docker node npm web-search)
+ZSH_THEME="agnoster"
+plugins=(gitfast jump ruby docker node npm)
 
 if [[ "$(uname)"=="Darwin" ]]; then
   plugins+=(osx)
@@ -103,11 +103,17 @@ fi
 ################################################################################
 # Ruby
 ################################################################################
-RAILS_ENV=test
-if [[ -s "${HOME}/.rvm/scripts/rvm" ]]; then
-  "${HOME}/.rvm/scripts/rvm"
-fi
-export PATH="$PATH:${HOME}/.rvm/bin"
+rvm() {
+    unset -f rvm
+    load_rvm
+    rvm "$@"
+}
+
+load_rvm() {
+  if [[ -s "${HOME}/.rvm/scripts/rvm" ]]; then
+    "${HOME}/.rvm/scripts/rvm"
+  fi
+}
 
 ################################################################################
 # JavaScript
@@ -119,9 +125,20 @@ npm_install_global_packages() {
   npm install -g  "${packages[@]}"
 }
 
-if [[ -s "${HOME}/.nvm/nvm.sh" ]]; then
-  source  "${HOME}/.nvm/nvm.sh"
-fi
+nvm() {
+    unset -f nvm
+    load_nvm
+    nvm "$@"
+}
+
+load_nvm() {
+  if [[ -s "${NVM_DIR}/nvm.sh" ]]; then
+    source  "${NVM_DIR}/nvm.sh"
+  fi
+  if [[ -s "${NVM_DIR}/bash_completion" ]]; then
+    source  "${NVM_DIR}/bash_completion"
+  fi
+}
 
 ################################################################################
 # Java

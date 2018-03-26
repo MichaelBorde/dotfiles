@@ -15,7 +15,7 @@
  '(menu-bar-mode nil)
  '(package-selected-packages
    (quote
-    (jsx-mode god-mode zenburn-theme dracula-theme darcula-theme applescript-mode yaml-mode go-mode helm-descbinds helm-ls-git pbcopy simpleclip window-numbering websocket web-mode undo-tree sr-speedbar reveal-in-osx-finder request oauth2 move-text monokai-theme markdown-mode magit js2-mode expand-region emojify dockerfile-mode csharp-mode circe benchmark-init alert adoc-mode ac-helm)))
+    (color-theme-solarized jsx-mode god-mode zenburn-theme dracula-theme darcula-theme applescript-mode yaml-mode go-mode helm-descbinds helm-ls-git pbcopy simpleclip window-numbering websocket web-mode undo-tree sr-speedbar reveal-in-osx-finder request oauth2 move-text monokai-theme markdown-mode magit js2-mode expand-region emojify dockerfile-mode csharp-mode circe benchmark-init alert adoc-mode ac-helm)))
  '(python-indent-offset 2)
  '(recentf-mode t)
  '(sh-basic-offset 2)

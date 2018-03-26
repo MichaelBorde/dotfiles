@@ -24,7 +24,8 @@
 (global-undo-tree-mode 1)
 (defalias 'redo 'undo-tree-redo)
 
-(load-theme 'zenburn t)
+;;(customize-set-variable 'frame-background-mode 'dark)
+(load-theme 'solarized t)
 
 (add-hook 'after-change-major-mode-hook
           (lambda() (electric-indent-mode -1)))
