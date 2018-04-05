@@ -36,6 +36,6 @@ export NODE_VERSION=8.9.3
 export MAVEN_OPTS="-Xmx1024m -Xms512m -Dfile.encoding=UTF8"
 export ANT_OPTS="-Xmx1024m -Xms512m -Dfile.encoding=UTF8"
 
-if [[ -f "${HOME}/.localprofile" ]]; then
-  source "${HOME}/.localprofile"
+if [[ -f "${HOME}/.zprofile.local" ]]; then
+  source "${HOME}/.zprofile.local"
 fi
