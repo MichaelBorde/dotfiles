@@ -143,16 +143,17 @@ load_nvm() {
 ################################################################################
 # Java
 ################################################################################
-if [[ "$(uname)"=="Darwin" ]]; then
-   alias ls_java='/usr/libexec/java_home -V 2>&1 \
-         | grep -E "\d.\d.\d_\d\d" | cut -d , -f 1 | colrm 1 4 | grep -v Home'
+sdk() {
+  unset -f sdk
+  load_sdkman
+  sdk "$@"
+}
 
-   change_java() {
-     export JAVA_HOME="$(/usr/libexec/java_home -v "$1")"
-     export PATH="${JAVA_HOME}/bin:${PATH}"
-     java -version
-   }
-fi
+load_sdkman() {
+  if [[ -s "${SDKMAN_DIR}/bin/sdkman-init.sh" ]]; then 
+    source "${SDKMAN_DIR}/bin/sdkman-init.sh"
+  fi  
+}
 
 ################################################################################
 # Misc
