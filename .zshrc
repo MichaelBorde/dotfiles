@@ -26,6 +26,7 @@ alias enip='ifconfig | grep -Eo "inet (addr:)?([0-9]*\.){3}[0-9]*" | grep -Eo "(
 alias uuid="uuidgen | tr '[:upper:]' '[:lower:]'"
 alias compose="docker-compose"
 alias rn="react-native"
+alias ctop="ctop -i"
 
 if [[ "$(uname)"=="Darwin" ]]; then
   alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"

@@ -5,7 +5,7 @@ set smooth
 set historylog
 set morespace
 set mouse
-set const
+set constantshow
 set backup
 set backupdir ~/.nano/tmp
 

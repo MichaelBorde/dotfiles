@@ -12,8 +12,8 @@ export RUBY_VERSION=2.3.3
 export RAILS_ENV=test
 export NVM_DIR="${HOME}/.nvm"
 export SDKMAN_DIR="${HOME}/.sdkman"
-export JAVA_VERSION=8.0.163
-export NODE_VERSION=8.9.3
+export JAVA_VERSION=10.0.1
+export NODE_VERSION=8.11.1
 export MAVEN_OPTS="-Xmx1024m -Xms512m -Dfile.encoding=UTF8"
 export ANT_OPTS="-Xmx1024m -Xms512m -Dfile.encoding=UTF8"
 
