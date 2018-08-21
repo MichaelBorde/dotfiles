@@ -3,7 +3,7 @@
 ################################################################################
 export ZSH="${HOME}/.oh-my-zsh"
 ZSH_THEME="agnoster"
-plugins=(gitfast jump ruby docker node npm)
+plugins=(gitfast jump ruby docker node npm gpg-agent)
 
 if [[ "$(uname)"=="Darwin" ]]; then
   plugins+=(osx)
@@ -188,3 +188,14 @@ resize_images() {
     convert "${file}" -resize "2000000@>" "${file}"
   done < <(find . -maxdepth 1 -iname "*.jpg" -o -iname "*.png")
 }
+
+prepare_os() {
+  prepare_os_$(uname)
+}
+
+if [[ "$(uname)"=="Darwin" ]]; then
+  prepare_os_Darwin() {
+    defaults write com.apple.screencapture location ~/Downloads
+    killall SystemUIServer  
+  }
+fi

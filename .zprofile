@@ -13,7 +13,7 @@ export RAILS_ENV=test
 export NVM_DIR="${HOME}/.nvm"
 export SDKMAN_DIR="${HOME}/.sdkman"
 export JAVA_VERSION=10.0.1
-export NODE_VERSION=8.11.1
+export NODE_VERSION=8.11.3
 export MAVEN_OPTS="-Xmx1024m -Xms512m -Dfile.encoding=UTF8"
 export ANT_OPTS="-Xmx1024m -Xms512m -Dfile.encoding=UTF8"
 
