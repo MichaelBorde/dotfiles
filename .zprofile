@@ -8,18 +8,15 @@ export VISUAL="${EDITOR}"
 export CLICOLOR="1"
 export LSCOLORS="gxBxhxDxfxhxhxhxhxcxcx"
 export DISABLE_UPDATE_PROMPT=true
-export RUBY_VERSION=2.3.3
 export RAILS_ENV=test
 export NVM_DIR="${HOME}/.nvm"
 export SDKMAN_DIR="${HOME}/.sdkman"
 export JAVA_VERSION=10.0.1
-export NODE_VERSION=8.11.3
+export NODE_VERSION=8.12.0
 export MAVEN_OPTS="-Xmx1024m -Xms512m -Dfile.encoding=UTF8"
 export ANT_OPTS="-Xmx1024m -Xms512m -Dfile.encoding=UTF8"
 
 export PATH="\
-${HOME}/.rvm/gems/ruby-${RUBY_VERSION}/bin:\
-${HOME}/.rvm/bin:\
 ${NVM_DIR}/versions/node/v${NODE_VERSION}/bin:\
 ${SDKMAN_DIR}/candidates/java/${JAVA_VERSION}-zulu/bin:\
 /Applications/Postgres.app/Contents/Versions/latest/bin:\
