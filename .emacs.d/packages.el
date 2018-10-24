@@ -3,29 +3,7 @@
 (setq package-enable-at-startup nil)
 (package-initialize)
 
-;;(require 'benchmark-init)
-;;(benchmark-init/activate)
-
 (require 'misc)
-;;(require 'undo-tree)
-;;(require 'helm-config)
-;;(require 'helm-ls-git)
-;;(require 'helm-descbinds)
-;;(require 'zenburn-theme)
-;;(require 'expand-region)
-;;(require 'window-numbering)
-;;(require 'auto-complete)
-;;(require 'ac-helm)
-;;(require 'move-text)
-;;(require 'sr-speedbar)
-;;(require 'reveal-in-osx-finder)
-
-;;(require ‘pbcopy)
-(turn-on-pbcopy)
-
-(require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
-(ac-config-default)
 
 (autoload 'web-mode "web-mode" nil t)
 (autoload 'js2-mode "js2-mode" nil t)

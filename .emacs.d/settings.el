@@ -21,9 +21,6 @@
 (setq create-lockfiles nil)
 (setq vc-follow-symlinks nil)
 
-(global-undo-tree-mode 1)
-(defalias 'redo 'undo-tree-redo)
-
 ;;(customize-set-variable 'frame-background-mode 'dark)
 (load-theme 'solarized t)
 
