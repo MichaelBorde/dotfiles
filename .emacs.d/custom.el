@@ -11,7 +11,6 @@
  '(delete-selection-mode t)
  '(initial-scratch-message nil)
  '(js-indent-level 2)
- '(js2-basic-offset 2)
  '(menu-bar-mode nil)
  '(package-selected-packages
    (quote
@@ -19,7 +18,6 @@
  '(python-indent-offset 2)
  '(recentf-mode t)
  '(sh-basic-offset 2)
- '(sh-indentation 2)
  '(show-paren-mode t)
  '(size-indication-mode t)
  '(tool-bar-mode nil))
