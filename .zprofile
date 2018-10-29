@@ -10,15 +10,12 @@ export LSCOLORS="gxBxhxDxfxhxhxhxhxcxcx"
 export DISABLE_UPDATE_PROMPT=true
 export RAILS_ENV=test
 export NVM_DIR="${HOME}/.nvm"
-export SDKMAN_DIR="${HOME}/.sdkman"
-export JAVA_VERSION=10.0.1
 export NODE_VERSION=8.12.0
 export MAVEN_OPTS="-Xmx1024m -Xms512m -Dfile.encoding=UTF8"
 export ANT_OPTS="-Xmx1024m -Xms512m -Dfile.encoding=UTF8"
 
 export PATH="\
 ${NVM_DIR}/versions/node/v${NODE_VERSION}/bin:\
-${SDKMAN_DIR}/candidates/java/${JAVA_VERSION}-zulu/bin:\
 /Applications/Postgres.app/Contents/Versions/latest/bin:\
 /usr/local/sbin:\
 /usr/local/bin:\

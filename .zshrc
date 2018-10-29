@@ -130,17 +130,9 @@ load_nvm() {
 ################################################################################
 # Java
 ################################################################################
-sdk() {
-  unset -f sdk
-  load_sdkman
-  sdk "$@"
-}
-
-load_sdkman() {
-  if [[ -s "${SDKMAN_DIR}/bin/sdkman-init.sh" ]]; then 
-    source "${SDKMAN_DIR}/bin/sdkman-init.sh"
-  fi  
-}
+if [[ -s "${HOME}/.sdkman/bin/sdkman-init.sh" ]]; then 
+  source "${HOME}/.sdkman/bin/sdkman-init.sh"
+fi  
 
 ################################################################################
 # Misc
