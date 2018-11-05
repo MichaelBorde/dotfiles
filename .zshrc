@@ -3,7 +3,7 @@
 ################################################################################
 export ZSH="${HOME}/.oh-my-zsh"
 ZSH_THEME="agnoster"
-plugins=(gitfast jump ruby docker node npm gpg-agent)
+plugins=(gitfast jump ruby docker npm gpg-agent)
 
 if [[ "$(uname)"=="Darwin" ]]; then
   plugins+=(osx)
@@ -39,61 +39,6 @@ fi
 ################################################################################
 alias edit_profile="${EDITOR} ${HOME}/.zshrc"
 alias resource_profile="source ${HOME}/.zprofile && source ${HOME}/.zshrc"
-
-################################################################################
-# Docker
-################################################################################
-docker_stop_containers() {
-  docker stop $(docker ps -a -q)
-}
-
-docker_clean() {
-  docker_clean_containers
-  docker_clean_images
-  docker_clean_volumes
-}
-
-docker_clean_containers() {
-  docker rm -v $(docker ps -a -q -f status=exited)
-}
-
-docker_clean_images() {
-  docker rmi $(docker images -f "dangling=true" -q)
-}
-
-docker_clean_volumes() {
-  docker volume rm $(docker volume ls -qf dangling=true)
-}
-
-docker_run_bash() {
-  local image="$1"
-  shift 1
-  docker run -ti --name "${image}" "${image}" bash "$@"
-}
-
-docker_exec_bash() {
-  local container="$1"
-  shift 1
-  docker exec -ti --name "${container}" "${container}" bash "$@"
-}
-
-docker_run_daemon() {
-  local image="$1"
-  shift 1
-  docker run -d --name "${image}" "$@" "${image}"
-}
-
-docker_ip() {
-  docker inspect -f "{{.NetworkSettings.IPAddress}}" "$1"
-}
-
-################################################################################
-# Kubernetes
-################################################################################
-kube_log() {
-  local pod="$1"
-  kubectl logs "$(kubectl get pods | grep -m 1 -o "${pod}[^ ]*")" "${@:2}"
-}
 
 ################################################################################
 # Other .dotfiles
