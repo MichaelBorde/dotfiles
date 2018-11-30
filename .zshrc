@@ -130,7 +130,3 @@ if [[ "$(uname)"=="Darwin" ]]; then
     killall SystemUIServer  
   }
 fi
-
-# tabtab source for electron-forge package
-# uninstall by removing these lines or running `tabtab uninstall electron-forge`
-[[ -f /Users/michael/Developpement/lgo/exchange/lgo-desktop/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /Users/michael/Developpement/lgo/exchange/lgo-desktop/node_modules/tabtab/.completions/electron-forge.zsh
