@@ -28,6 +28,7 @@ alias shortuuid="uuid | sed 's/-//g'"
 alias compose="docker-compose"
 alias rn="react-native"
 alias ctop="ctop -i"
+alias gitpullrec="find . -not -iwholename '*node_modules*' -name .git -execdir git pull \;"
 
 if [[ "$(uname)"=="Darwin" ]]; then
   alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
@@ -71,6 +72,13 @@ load_nvm() {
     source  "${NVM_DIR}/bash_completion"
   fi
 }
+
+################################################################################
+# Ruby
+################################################################################
+if type rbenv >/dev/null 2>&1; then
+  eval "$(rbenv init -)"
+fi  
 
 ################################################################################
 # Java
@@ -122,3 +130,7 @@ if [[ "$(uname)"=="Darwin" ]]; then
     killall SystemUIServer  
   }
 fi
+
+# tabtab source for electron-forge package
+# uninstall by removing these lines or running `tabtab uninstall electron-forge`
+[[ -f /Users/michael/Developpement/lgo/exchange/lgo-desktop/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /Users/michael/Developpement/lgo/exchange/lgo-desktop/node_modules/tabtab/.completions/electron-forge.zsh
