@@ -15,4 +15,5 @@
   "terminal.external.osxExec": "iTerm.app",
   "typescript.updateImportsOnFileMove.enabled": "always",
   "git.enableSmartCommit": true,
+  "window.restoreWindows": "none",
 }
