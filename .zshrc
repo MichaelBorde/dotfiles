@@ -125,7 +125,7 @@ run_ntimes() {
   local times=$1;
   shift;
   for i in {1..${times}}; do
-    $@
+    { $@ } || return $?
   done
 }
 
