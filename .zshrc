@@ -121,6 +121,14 @@ resize_images() {
   done < <(find . -maxdepth 1 -iname "*.jpg" -o -iname "*.png")
 }
 
+run_ntimes() {
+  local times=$1;
+  shift;
+  for i in {1..${times}}; do
+    $@
+  done
+}
+
 prepare_os() {
   prepare_os_$(uname)
 }
