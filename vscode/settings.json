@@ -10,7 +10,7 @@
   "workbench.iconTheme": "vs-minimal",
   "explorer.autoReveal": false,
   "explorer.openEditors.visible": 0,
-  "workbench.colorTheme": "Solarized Light",
+  "workbench.colorTheme": "Darcula",
   "workbench.list.openMode": "doubleClick",
   "terminal.external.osxExec": "iTerm.app",
   "typescript.updateImportsOnFileMove.enabled": "always",
