@@ -16,4 +16,7 @@
   "typescript.updateImportsOnFileMove.enabled": "always",
   "git.enableSmartCommit": true,
   "window.restoreWindows": "none",
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
 }

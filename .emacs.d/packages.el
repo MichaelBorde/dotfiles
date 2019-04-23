@@ -17,7 +17,7 @@
             markdown-mode
             dockerfile-mode
             adoc-mode
-            color-theme-solarized)))
+            darcula-theme)))
 
 (install-packages)
 

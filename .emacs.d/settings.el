@@ -21,8 +21,8 @@
 (setq create-lockfiles nil)
 (setq vc-follow-symlinks nil)
 
-;;(customize-set-variable 'frame-background-mode 'dark)
-(load-theme 'solarized t)
+(customize-set-variable 'frame-background-mode 'dark)
+(load-theme 'darcula t)
 
 (add-hook 'after-change-major-mode-hook
           (lambda() (electric-indent-mode -1)))
