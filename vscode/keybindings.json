@@ -7,5 +7,9 @@
   {
     "key": "ctrl+tab",
     "command": "-workbench.action.openNextRecentlyUsedEditorInGroup"
+  },
+  {
+    "key": "shift+f1",
+    "command": "workbench.files.action.showActiveFileInExplorer"
   }
 ]
