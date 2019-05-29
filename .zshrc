@@ -130,7 +130,9 @@ run_ntimes() {
 }
 
 prepare_os() {
-  prepare_os_$(uname)
+  if type prepare_os_$(uname) >/dev/null 2>&1; then
+    prepare_os_$(uname)
+  fi  
 }
 
 if [[ "$(uname)"=="Darwin" ]]; then
@@ -138,4 +140,8 @@ if [[ "$(uname)"=="Darwin" ]]; then
     defaults write com.apple.screencapture location ~/Downloads
     killall SystemUIServer  
   }
+fi
+
+if [[ -s "${HOME}/.iterm2_shell_integration.zsh" ]]; then
+  source "${HOME}/.iterm2_shell_integration.zsh"
 fi
