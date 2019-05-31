@@ -141,7 +141,3 @@ if [[ "$(uname)"=="Darwin" ]]; then
     killall SystemUIServer  
   }
 fi
-
-if [[ -s "${HOME}/.iterm2_shell_integration.zsh" ]]; then
-  source "${HOME}/.iterm2_shell_integration.zsh"
-fi
