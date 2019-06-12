@@ -11,5 +11,10 @@
   {
     "key": "shift+f1",
     "command": "workbench.files.action.showActiveFileInExplorer"
+  },
+  {
+    "key": "cmd+w",
+    "command": "-workbench.action.closeWindow",
+    "when": "!editorIsOpen && !multipleEditorGroups"
   }
 ]

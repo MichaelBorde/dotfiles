@@ -32,4 +32,8 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "terminal.integrated.fontFamily": "Meslo LG M DZ for Powerline",
+  "typescript.suggest.autoImports": false,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "window.zoomLevel": 0,
+  "editor.acceptSuggestionOnCommitCharacter": false,
 }
