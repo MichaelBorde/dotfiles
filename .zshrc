@@ -130,6 +130,16 @@ run_ntimes() {
   done
 }
 
+generate_rsa_keypair() {
+  local bits=${1:-2048}
+  local private="$(mktemp private.XXX.pem)"
+  openssl genrsa -out "${private}" ${bits} > /dev/null 2>&1
+  local public="$(mktemp public.XXX.pem)"
+  openssl rsa -in "${private}" -outform PEM -pubout -out "${public}" > /dev/null 2>&1
+  cat "${private}" "${public}"
+  rm "${private}" "${public}"
+}
+
 prepare_os() {
   if type prepare_os_$(uname) >/dev/null 2>&1; then
     prepare_os_$(uname)
