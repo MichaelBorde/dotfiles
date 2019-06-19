@@ -30,7 +30,7 @@ alias rn="react-native"
 alias ctop="ctop -i"
 alias gitpullrec="find . -not -iwholename '*node_modules*' -name .git -execdir git pull \;"
 alias curlb="curl -s -o /dev/null -w  '%{time_total}ms %{http_code}'"
-alias npmlinked="find node_modules -type l -not -iwholename 'node_modules/.bin/*'"
+alias npmlinked="find node_modules -type l -not -iwholename '*node_modules/.bin/*'"
 
 if [[ "$(uname)"=="Darwin" ]]; then
   alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
