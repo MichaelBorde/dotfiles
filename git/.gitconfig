@@ -7,10 +7,11 @@
 	autocrlf = input
 [alias]
   lol = log --graph --decorate --pretty=format:'%C(yellow)%h%Creset%C(bold red)%d %Creset%s %Cgreen(%cr)%C(bold blue) <%an>%Creset' --abbrev-commit --date=relative
-  lol2 = log --graph --decorate --pretty=format:'%C(yellow)%h%Creset%C(bold red)%d %Creset%s %Cgreen(%cr)%C(bold blue) <%an>%Creset' --abbrev-commit --date=relative -n 20
+  lol2 = !git --no-pager log --graph --decorate --pretty=format:'%C(yellow)%h%Creset%C(bold red)%d %Creset%s %Cgreen(%cr)%C(bold blue) <%an>%Creset' --abbrev-commit --date=relative -n 20
   lola = log --graph --decorate --pretty=format:'%C(yellow)%h%Creset%C(bold red)%d %Creset%s %Cgreen(%cr)%C(bold blue) <%an>%Creset' --abbrev-commit --date=relative --all
-  lola2 = log --graph --decorate --pretty=format:'%C(yellow)%h%Creset%C(bold red)%d %Creset%s %Cgreen(%cr)%C(bold blue) <%an>%Creset' --abbrev-commit --date=relative --all -n 20
-  tagl = log --tags --simplify-by-decoration --pretty=format:'%ai %d <%an>'
+  lola2 = !git --no-pager log --graph --decorate --pretty=format:'%C(yellow)%h%Creset%C(bold red)%d %Creset%s %Cgreen(%cr)%C(bold blue) <%an>%Creset' --abbrev-commit --date=relative --all -n 20
+  tagl = log --tags --simplify-by-decoration --pretty=format:'%Cgreen%ai%Creset %C(bold red)%d%Creset %C(bold blue)<%an>%Creset'
+  tagl2 = !git --no-pager log --tags --simplify-by-decoration --pretty=format:'%Cgreen%ai%Creset %C(bold red)%d%Creset %C(bold blue)<%an>%Creset' -n 20
   s = status -sb
   b = branch -a
   unchanged = update-index --assume-unchanged
