@@ -28,7 +28,6 @@ alias shortuuid="uuid | sed 's/-//g'"
 alias compose="docker-compose"
 alias rn="react-native"
 alias ctop="ctop -i"
-alias gitpullrec="find . -not -iwholename '*node_modules*' -name .git -exec dirname {} \; -execdir git pull \; -exec echo '' \;"
 alias curlb="curl -s -o /dev/null -w  '%{time_total}ms %{http_code}'"
 alias npmlinked="find node_modules -type l -not -iwholename '*node_modules/.bin/*'"
 alias timestamp="date +'%s'"
@@ -93,6 +92,15 @@ fi
 ################################################################################
 # Misc
 ################################################################################
+gitrec() {
+  find . \
+    -not -iwholename '*node_modules*' \
+    -name .git \
+    -exec dirname {} \; \
+    -execdir "$@" \; \
+    -exec echo '' \;
+}
+
 add_timestamp() {
   local file="$1"
   local timestamp="$(date +"%Y%m%d%H%M%S")"
