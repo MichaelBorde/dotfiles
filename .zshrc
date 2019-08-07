@@ -28,7 +28,7 @@ alias shortuuid="uuid | sed 's/-//g'"
 alias compose="docker-compose"
 alias rn="react-native"
 alias ctop="ctop -i"
-alias gitpullrec="find . -not -iwholename '*node_modules*' -name .git -execdir git pull \;"
+alias gitpullrec="find . -not -iwholename '*node_modules*' -name .git -exec dirname {} \; -execdir git pull \; -exec echo '' \;"
 alias curlb="curl -s -o /dev/null -w  '%{time_total}ms %{http_code}'"
 alias npmlinked="find node_modules -type l -not -iwholename '*node_modules/.bin/*'"
 alias timestamp="date +'%s'"
@@ -139,6 +139,11 @@ generate_rsa_keypair() {
   openssl rsa -in "${private}" -outform PEM -pubout -out "${public}" > /dev/null 2>&1
   cat "${private}" "${public}"
   rm "${private}" "${public}"
+}
+
+list_extensions() {
+  local path="${1:-${PWD}}"
+  find "${path}" -type f | sed -n 's/..*\.//p' | sort | uniq -c
 }
 
 prepare_os() {

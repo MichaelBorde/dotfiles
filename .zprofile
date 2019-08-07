@@ -10,7 +10,7 @@ export LSCOLORS="gxBxhxDxfxhxhxhxhxcxcx"
 export DISABLE_UPDATE_PROMPT=true
 export RAILS_ENV=test
 export NVM_DIR="${HOME}/.nvm"
-export NODE_VERSION=10.15.3
+export NODE_VERSION=10.16.2
 export MAVEN_OPTS="-Xmx1024m -Xms512m -Dfile.encoding=UTF8"
 export ANT_OPTS="-Xmx1024m -Xms512m -Dfile.encoding=UTF8"
 

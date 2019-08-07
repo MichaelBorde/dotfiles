@@ -36,4 +36,12 @@
   "javascript.updateImportsOnFileMove.enabled": "always",
   "window.zoomLevel": 0,
   "editor.acceptSuggestionOnCommitCharacter": false,
+  "extensions.ignoreRecommendations": true,
+  "gitlens.currentLine.enabled": false,
+  "gitlens.hovers.currentLine.over": "line",
+  "gitlens.codeLens.enabled": false,
+  "gitlens.statusBar.enabled": false,
+  "gitlens.blame.heatmap.enabled": false,
+  "gitlens.blame.highlight.enabled": false,
+  "gitlens.hovers.enabled": false,
 }
