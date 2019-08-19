@@ -32,11 +32,6 @@ alias curlb="curl -s -o /dev/null -w  '%{time_total}ms %{http_code}'"
 alias npmlinked="find node_modules -type l -not -iwholename '*node_modules/.bin/*'"
 alias timestamp="date +'%s'"
 
-if [[ "$(uname)"=="Darwin" ]]; then
-  alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
-  alias chrome-canary="/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary"
-fi
-
 ################################################################################
 # .zshrc
 ################################################################################
