@@ -9,7 +9,6 @@
   "explorer.confirmDragAndDrop": false,
   "explorer.autoReveal": false,
   "explorer.openEditors.visible": 0,
-  "workbench.colorTheme": "Darcula",
   "workbench.list.openMode": "doubleClick",
   "terminal.external.osxExec": "iTerm.app",
   "typescript.updateImportsOnFileMove.enabled": "always",
@@ -43,5 +42,6 @@
   "gitlens.statusBar.enabled": false,
   "gitlens.blame.heatmap.enabled": false,
   "gitlens.blame.highlight.enabled": false,
-  "gitlens.hovers.enabled": false
+  "gitlens.hovers.enabled": false,
+  "workbench.colorTheme": "Visual Studio Dark"
 }
