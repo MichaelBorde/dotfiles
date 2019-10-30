@@ -5,6 +5,10 @@
     "command": "workbench.action.openNextRecentlyUsedEditorInGroup"
   },
   {
+    "key": "ctrl+e",
+    "command": "workbench.action.openNextRecentlyUsedEditorInGroup"
+  },
+  {
     "key": "ctrl+tab",
     "command": "-workbench.action.openNextRecentlyUsedEditorInGroup"
   },
@@ -14,6 +18,11 @@
   },
   {
     "key": "cmd+w",
+    "command": "-workbench.action.closeWindow",
+    "when": "!editorIsOpen && !multipleEditorGroups"
+  },
+  {
+    "key": "ctrl+w",
     "command": "-workbench.action.closeWindow",
     "when": "!editorIsOpen && !multipleEditorGroups"
   }
