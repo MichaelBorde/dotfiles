@@ -7,7 +7,7 @@
   title_receive_bg_color = "#cc0000"
   title_inactive_fg_color = "#d3d7cf"
   title_inactive_bg_color = "#555753"
-  inactive_color_offset = 1.0
+  inactive_color_offset = 0.7000000000000001
   suppress_multiple_term_dialog = True
 [keybindings]
 [profiles]
