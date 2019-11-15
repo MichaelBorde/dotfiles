@@ -149,6 +149,11 @@ list_extensions() {
   find "${path}" -type f | sed -n 's/..*\.//p' | sort | uniq -c
 }
 
+reduce_pdf() {
+  local file="$1"
+  ghostscript -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile="reduced_${file}" "${file}"
+}
+
 prepare_os() {
   if type prepare_os_$(uname) >/dev/null 2>&1; then
     prepare_os_$(uname)
