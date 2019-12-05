@@ -48,27 +48,12 @@ fi
 ################################################################################
 # JavaScript
 ################################################################################
-npm_install_global_packages() {
-  local -a packages
-  packages=("npm" "grunt-cli" "http-server" "npm-check" "ionic" "cordova" \
-"ios-deploy" "ios-sim" "knex" "react-native-cli" "prettier")
-  npm install -g  "${packages[@]}"
-}
-
-nvm() {
-    unset -f nvm
-    load_nvm
-    nvm "$@"
-}
-
-load_nvm() {
-  if [[ -s "${NVM_DIR}/nvm.sh" ]]; then
-    source  "${NVM_DIR}/nvm.sh"
-  fi
-  if [[ -s "${NVM_DIR}/bash_completion" ]]; then
-    source  "${NVM_DIR}/bash_completion"
-  fi
-}
+if [[ -s "${NVM_DIR}/nvm.sh" ]]; then
+  source  "${NVM_DIR}/nvm.sh"
+fi
+if [[ -s "${NVM_DIR}/bash_completion" ]]; then
+  source  "${NVM_DIR}/bash_completion"
+fi
 
 ################################################################################
 # Ruby
