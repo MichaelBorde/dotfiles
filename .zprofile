@@ -9,6 +9,7 @@ export MAVEN_OPTS="-Xmx1024m -Xms512m -Dfile.encoding=UTF8"
 export ANT_OPTS="-Xmx1024m -Xms512m -Dfile.encoding=UTF8"
 export ANDROID_HOME="${HOME}/Android/Sdk"
 export PYENV_ROOT="${HOME}/.pyenv"
+export RBENV_ROOT="${HOME}/.rbenv"
 
 export PATH="\
 ${ANDROID_HOME}/tools:\
@@ -18,6 +19,7 @@ ${ANDROID_HOME}/tools:\
 ${ANDROID_HOME}/tools/bin:\
 ${ANDROID_HOME}/platform-tools:\
 ${PYENV_ROOT}/bin:\
+${RBENV_ROOT}/bin:\
 /usr/local/sbin:\
 /usr/local/bin:\
 /usr/bin:\

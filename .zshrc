@@ -70,6 +70,13 @@ if [[ -s "${HOME}/.sdkman/bin/sdkman-init.sh" ]]; then
 fi  
 
 ################################################################################
+# Python
+################################################################################
+if type pyenv >/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi  
+
+################################################################################
 # Misc
 ################################################################################
 gitrec() {
@@ -151,3 +158,7 @@ if [[ "$(uname)"=="Darwin" ]]; then
     killall SystemUIServer  
   }
 fi
+
+# tabtab source for electron-forge package
+# uninstall by removing these lines or running `tabtab uninstall electron-forge`
+[[ -f /home/michael/Sources/eove/eo-toolkit/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /home/michael/Sources/eove/eo-toolkit/node_modules/tabtab/.completions/electron-forge.zsh

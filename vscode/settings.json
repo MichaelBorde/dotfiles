@@ -48,5 +48,11 @@
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "java.configuration.checkProjectSettingsExclusions": false,
   "explorer.confirmDelete": false,
-  "editor.selectionClipboard": false
+  "editor.selectionClipboard": false,
+  "python.jediEnabled": false,
+  "editor.renderWhitespace": "all",
+  "java.requirements.JDK11Warning": false,
+  "java.semanticHighlighting.enabled": true,
+"files.autoSaveDelay": 30000,
+"python.languageServer": "Microsoft"
 }
