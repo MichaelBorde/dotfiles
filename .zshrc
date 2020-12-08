@@ -31,6 +31,7 @@ alias ctop="ctop -i"
 alias curlb="curl -s -o /dev/null -w  '%{time_total}ms %{http_code}'"
 alias npmlinked="find node_modules -type l -not -iwholename '*node_modules/.bin/*'"
 alias timestamp="date +'%s'"
+alias npmversion="node -p -e \"require('./package.json').version\""
 
 ################################################################################
 # .zshrc
@@ -158,6 +159,8 @@ if [[ "$(uname)"=="Darwin" ]]; then
     killall SystemUIServer  
   }
 fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # tabtab source for electron-forge package
 # uninstall by removing these lines or running `tabtab uninstall electron-forge`

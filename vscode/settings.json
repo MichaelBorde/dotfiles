@@ -1,10 +1,9 @@
 {
   "editor.tabSize": 2,
-  "editor.formatOnSave": true,
   "editor.scrollBeyondLastLine": false,
   "workbench.editor.enablePreview": false,
   "editor.minimap.enabled": false,
-  "files.autoSave": "afterDelay",
+  "files.autoSave": "onFocusChange",
   "git.confirmSync": false,
   "explorer.confirmDragAndDrop": false,
   "explorer.autoReveal": false,
@@ -43,7 +42,6 @@
   "gitlens.blame.heatmap.enabled": false,
   "gitlens.blame.highlight.enabled": false,
   "gitlens.hovers.enabled": false,
-  "workbench.colorTheme": "Visual Studio Dark",
   "editor.suggestSelection": "first",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "java.configuration.checkProjectSettingsExclusions": false,
@@ -54,5 +52,7 @@
   "java.requirements.JDK11Warning": false,
   "java.semanticHighlighting.enabled": true,
 "files.autoSaveDelay": 30000,
-"python.languageServer": "Microsoft"
+"python.languageServer": "Microsoft",
+"workbench.colorTheme": "Visual Studio Dark",
+"diffEditor.ignoreTrimWhitespace": false
 }

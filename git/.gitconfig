@@ -10,10 +10,11 @@
   lol2 = !git --no-pager log --graph --decorate --pretty=format:'%C(yellow)%h%Creset%C(bold red)%d %Creset%s %Cgreen(%cr)%C(bold blue) <%an>%Creset' --abbrev-commit --date=relative -n 20
   lola = !git --no-pager log --graph --decorate --pretty=format:'%C(yellow)%h%Creset%C(bold red)%d %Creset%s %Cgreen(%cr)%C(bold blue) <%an>%Creset' --abbrev-commit --date=relative --all -n 10
   lola2 = !git --no-pager log --graph --decorate --pretty=format:'%C(yellow)%h%Creset%C(bold red)%d %Creset%s %Cgreen(%cr)%C(bold blue) <%an>%Creset' --abbrev-commit --date=relative --all -n 20
-  tagl = log --tags --simplify-by-decoration --pretty=format:'%Cgreen%ai%Creset %C(bold red)%d%Creset %C(bold blue)<%an>%Creset'
+  tagl = ! git --no-pager log --tags --simplify-by-decoration --pretty=format:'%Cgreen%ai%Creset %C(bold red)%d%Creset %C(bold blue)<%an>%Creset' -n 10
   tagl2 = !git --no-pager log --tags --simplify-by-decoration --pretty=format:'%Cgreen%ai%Creset %C(bold red)%d%Creset %C(bold blue)<%an>%Creset' -n 20
   s = status -sb
-  b = branch -a
+  b = !git branch --sort=-committerdate | head
+  ba = !git branch -a --sort=-committerdate | head
   unchanged = update-index --assume-unchanged
   changed = update-index --no-assume-unchanged
   ignored = !git ls-files -v | grep "^[[:lower:]]"
@@ -27,3 +28,5 @@
 	rebase = true
 [rebase]
 	autoStash = true
+[pager]
+	branch = false

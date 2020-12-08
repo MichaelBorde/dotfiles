@@ -8,6 +8,8 @@ export RAILS_ENV=test
 export MAVEN_OPTS="-Xmx1024m -Xms512m -Dfile.encoding=UTF8"
 export ANT_OPTS="-Xmx1024m -Xms512m -Dfile.encoding=UTF8"
 export ANDROID_HOME="${HOME}/Android/Sdk"
+export ANDROID_SDK="${HOME}/Android/Sdk"
+export ANDROID_NDK="${HOME}/Android/Ndk/r19c"
 export PYENV_ROOT="${HOME}/.pyenv"
 export RBENV_ROOT="${HOME}/.rbenv"
 
