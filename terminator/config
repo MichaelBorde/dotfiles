@@ -1,4 +1,5 @@
 [global_config]
+  dbus = False
   extra_styling = False
   broadcast_default = off
   title_hide_sizetext = True
