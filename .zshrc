@@ -14,6 +14,8 @@ source "${ZSH}/oh-my-zsh.sh"
 setopt no_nomatch
 setopt interactivecomments
 
+ZLE_REMOVE_SUFFIX_CHARS=$' \t\n;'
+
 ################################################################################
 # Aliases
 ################################################################################

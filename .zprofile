@@ -1,5 +1,5 @@
 export EDITOR="nano"
-export ALTERNATE_EDITOR="emacs"
+export ALTERNATE_EDITOR="vi"
 export VISUAL="${EDITOR}"
 export CLICOLOR="1"
 export LSCOLORS="gxBxhxDxfxhxhxhxhxcxcx"
