@@ -1,3 +1,4 @@
+set linenumbers
 set tabsize 2
 set tabstospaces
 set nowrap
@@ -8,3 +9,4 @@ set mouse
 set constantshow
 set backup
 set backupdir ~/.nano/tmp
+set nohelp
